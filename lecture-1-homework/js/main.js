@@ -25,11 +25,11 @@ function randomDiscount (item){ // Функція генерування вип�
     const minVal = 1
     const maxVal = 100
     const discountValue = Math.round(Math.random() * (maxVal - minVal +1) + minVal)
-    const priceMinus = item * (discountValue / 100)
-    const costItem =  item / 2
-    const profit = (item / 2) - priceMinus
+    const priceMinus = (item * (discountValue / 100)).toFixed(2)
+    const costItem =  (item / 2).toFixed(2)
+    const profit = ((item / 2) - priceMinus).toFixed(2)
     console.log(`
-    Ціна товару:${item}
+    Ціна товару:${item.toFixed(2)}
     Знижка являється:${discountValue}
     Клієнт заплатив на ${priceMinus} менше
     Собівартість товару складає: ${costItem}.
