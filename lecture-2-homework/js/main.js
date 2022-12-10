@@ -26,4 +26,4 @@ for (let i = startNumber; i <= lastNumber; i++) {
         sumNum = sumNum + i
     }
 }
-console.log(sumNum);
+document.querySelector('.result_sum').innerHTML = `Сума чисал становить <span class="colored">${sumNum}</span> при обранні початкового значення: <span class="colored">${startNumber}</span> кінцевого значення: <span class="colored">${lastNumber}</span> (врахування парних чисел <span class="colored">"${confirmRequest}</span>")`

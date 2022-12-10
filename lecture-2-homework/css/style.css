@@ -6,3 +6,12 @@
     margin: 0;
     box-sizing: border-box;
 }
+.result_sum{
+    margin:  100px auto;
+    max-width: 500px;
+    font: 600 14px Comfortaa;
+}
+.colored{
+    color: blue;
+    text-transform: uppercase;
+}
