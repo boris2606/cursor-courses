@@ -1,0 +1,17 @@
+/* @import url(reset.css); */
+@import url(fonts.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.result_sum{
+    margin:  100px auto;
+    max-width: 600px;
+    font: 600 14px Comfortaa;
+}
+.colored{
+    color: blue;
+    text-transform: uppercase;
+}
