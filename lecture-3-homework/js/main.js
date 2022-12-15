@@ -1,18 +1,21 @@
 // Функція №1 Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі.
 
-const numberFuncOne = prompt('Введіть будь-яке число щоб отримати найбильшу цифру в цьому числі')
-function getMaxDigit(number){
-    if (number){
-        let filteredArr = number.split('')
-                                .filter(errElem => errElem !== '.' && errElem !== ',')
-                                .map(Number)
-                                .filter(Boolean)
-        return Math.max(...filteredArr);
+document.querySelector(".func_1").onclick = () => {
+    const numberFuncOne = prompt('Введіть будь-яке число щоб отримати найбильшу цифру в цьому числі')
+    function getMaxDigit(number){
+        if (number){
+            let filteredArr = number.split('')
+                                    .filter(errElem => errElem !== '.' && errElem !== ',')
+                                    .map(Number)
+                                    .filter(Boolean)
+            return Math.max(...filteredArr);
+        }
     }
+    console.log(`Функція №1: ${getMaxDigit(numberFuncOne)}`); 
 }
-console.log(`Функція №1: ${getMaxDigit(numberFuncOne)}`); 
 
-//Функція №2 Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
+
+/* //Функція №2 Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
 const number = prompt('Введіть число яке необхідно підняти до степеня')
 const expon = prompt('Введіть степінь')
 function nuberExpon(number, exp){
@@ -48,4 +51,4 @@ function getRandomNumber(min,max){
 }
 console.log(`Функція №5: ${getRandomNumber(minValue,maxValue)}`);
 
-// Функція №6 Створити функцію, яка рахує скільки разів певна буква повторюється в слові.
+// Функція №6 Створити функцію, яка рахує скільки разів певна буква повторюється в слові. */
