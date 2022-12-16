@@ -2,19 +2,14 @@ let startNumber = checkNumber(Number(prompt('Введіть початкове �
 let lastNumber = checkNumber(Number(prompt('Введіть кінцеве значення')))
 
 // Перевірка на цілісність числа
-function checkNumber(number){
-    if (Number.isInteger(number)) {
-        return number = number
-    } else if (!Number.isInteger(number)) {
-        integerNumber = Number(prompt('Введіть ціле число'))
-        if (!Number.isInteger(integerNumber)){
-            const confirmQuestion = confirm('Введене значення знову не являється цілим, бажаєте здійснити округлення?')
-            if (confirmQuestion){
-                return number = Math.round(integerNumber)
-            }
-        }
-    }
+function checkNumber(number) {
+  let value = Number(number);//приводим до числа те що прийшло на вхід
+  while(!Number.isInteger(value)){//якщо не число повторюєм цикл
+    value = Number(prompt('Введіть число')); //вводимо значення і приводим то цілого числа
+  }
+  return value; //повертаєм
 }
+
 const confirmRequest = confirm("Бажаєте пропускати парні числа ?")
 let sumNum = 0
 for (let i = startNumber; i <= lastNumber; i++) {
