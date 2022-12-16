@@ -112,12 +112,17 @@ document.querySelector('.func_7').onclick = () =>{
 }
 // Функція № 9 Функція генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 document.querySelector('.func_9').onclick = () =>{
-    let passLength = prompt('Введіть бажану довжину випадкового паролю')
-    let value = Number(passLength);
-    while(!Number.isInteger(value)){
+    let passLength = Number(prompt('Введіть бажану довжину випадкового паролю'))
+    console.log(passLength);
+    while(!Number.isInteger(passLength)){
         value = Number(prompt('Введіть бажану довжину випадкового паролю'));
     }
-    function getRandomPassword(lenPass = 87240124) {
+    
+    console.log(passLength);
+    function getRandomPassword(lenPass) {
+        if (lenPass == 0){
+            lenPass = 8
+        }
         const chars = "0123456789"; 
         let password = lenPass
         for (var i = 1; i < lenPass; i++) {
