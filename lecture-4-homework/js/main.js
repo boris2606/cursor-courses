@@ -42,15 +42,21 @@ function getPairs(pairsWithTheme){
     return studensPairWithMarks
 }
 
-//--------
-console.group('Нові значення');
-console.log(pairsCreated);
-console.log(pairsWithTheme);
-console.log(markedStudent);
-console.log(pairs);
-console.groupEnd()
 console.group('Початкові масиви які використовуватимуться в роботі');
 console.log(students);
 console.log(themes);
 console.log(marks);
+console.groupEnd()
+console.group('Виконані завдання');
+console.group('1№ - Розділ студентів на пари(хлопець + дівчина)');
+console.log(pairsCreated);
+console.groupEnd()
+console.group('2№ - Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати.');
+console.log(pairsWithTheme);
+console.groupEnd()
+console.group('3№ - Зіставте оцінки(marks) зі студентом(students)');
+console.log(markedStudent);
+console.groupEnd()
+console.group('4№ - Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут');
+console.log(pairs);
 console.groupEnd()
