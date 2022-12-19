@@ -43,13 +43,14 @@ function getPairs(pairsWithTheme){
 }
 
 //--------
-console.log('Початкові масиви які використовуватимуться в роботі');
-console.log(students);
-console.log(themes);
-console.log(marks);
-console.log('---------------------------------------------------');
-console.log('Нові значення');
+console.group('Нові значення');
 console.log(pairsCreated);
 console.log(pairsWithTheme);
 console.log(markedStudent);
 console.log(pairs);
+console.groupEnd()
+console.group('Початкові масиви які використовуватимуться в роботі');
+console.log(students);
+console.log(themes);
+console.log(marks);
+console.groupEnd()
