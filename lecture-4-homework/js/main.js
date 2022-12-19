@@ -31,7 +31,7 @@ function marked(students,marks){
     return markedStudent
 }
 
-// Призначення парам оцінок парам оцінок
+// Призначення парам оцінок
 let pairs = getPairs(pairsWithTheme)
 function getPairs(pairsWithTheme){
     const studensPairWithMarks = []
