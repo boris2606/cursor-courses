@@ -23,6 +23,9 @@ document.querySelector(".func_2").onclick = () => {
     const expon = prompt('Введіть степінь')
     function nuberExpon(number, exp){
         let result = 1
+        if (exp < 0){
+            exp *= -1
+        }
         for (let i = 0; i < exp; i++) {
             result *= number
         }
@@ -74,7 +77,7 @@ document.querySelector(".func_5").onclick = () => {
 document.querySelector('.func_6').onclick = () =>{
     let word = prompt('Введіть слово')
     let searchLetter = prompt('Введіть букву кількість яких необхідно знайти в слові')
-    function countLetter(word, letter){
+    function countLetterInWord(word, letter){
         let lowerWord = word.toLowerCase()
         let numLetters = []
         for (let i = 0; i <= lowerWord.length; i++) {
@@ -85,7 +88,7 @@ document.querySelector('.func_6').onclick = () =>{
         return numLetters.length
     }
     document.querySelector('.func_result').innerHTML = `
-        <p class='result_text'> Функція №6: Результат виконання: кількість букв в слові = ${countLetter(word,searchLetter)}</p>
+        <p class='result_text'> Функція №6: Результат виконання: кількість букв в слові = ${countLetterInWord(word,searchLetter)}</p>
         `
 }
 
@@ -112,17 +115,12 @@ document.querySelector('.func_7').onclick = () =>{
 }
 // Функція № 9 Функція генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 document.querySelector('.func_9').onclick = () =>{
-    let passLength = Number(prompt('Введіть бажану довжину випадкового паролю'))
-    console.log(passLength);
-    while(!Number.isInteger(passLength)){
-        value = Number(prompt('Введіть бажану довжину випадкового паролю'));
+    let passLength = Number(prompt('Введіть бажану довжину випадкового паролю', 8))
+    if (passLength == 0 || passLength == null || passLength == undefined ) {
+        passLength = 8
     }
-    
-    console.log(passLength);
-    function getRandomPassword(lenPass) {
-        if (lenPass == 0){
-            lenPass = 8
-        }
+    function getRandomPassword(lenPass = 8) {
+
         const chars = "0123456789"; 
         let password = lenPass
         for (var i = 1; i < lenPass; i++) {
@@ -139,14 +137,14 @@ document.querySelector('.func_9').onclick = () =>{
 // Функція №11 Функція, яка видаляє всі букви з речення.
 document.querySelector('.func_11').onclick = () =>{
     let word = prompt('Введіть слово')
-    let searchLetter = prompt('Введіть літери які необхідно видалити зі слова')
-    function countLetter(word, letter){
+    let searchLetterForDeleting = prompt('Введіть літери які необхідно видалити зі слова')
+    function countLetterDeleting(word, letter){
         let lowerWord = word.toLowerCase()
         let result = lowerWord.split(letter).join('')
         return result
     }
     document.querySelector('.func_result').innerHTML = `
-        <p class='result_text'> Функція №6: Результат виконання: ${countLetter(word,searchLetter)}</p>
+        <p class='result_text'> Функція №6: Результат виконання: ${countLetterDeleting(word,searchLetterForDeleting)}</p>
         `
 }
 
@@ -156,11 +154,7 @@ document.querySelector('.func_12').onclick = () =>{
     function checkPalindrom(word){
         let notReversed = word.toLowerCase().split("").filter(element => element != ' ').join('')
         let reverseWord = word.toLowerCase().split('').filter(element => element != ' ').reverse().join('')
-        if (notReversed == reverseWord){
-            return true
-        } else {
-            return false
-        }
+        return (notReversed === reverseWord)
     }
     document.querySelector('.func_result').innerHTML = `
     <p class='result_text'> Функція №6: Результат виконання: ${checkPalindrom(word)}</p>
