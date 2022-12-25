@@ -79,9 +79,10 @@ document.getElementById('function_6').onclick = () =>{
     let searchLetter = prompt('Введіть букву кількість яких необхідно знайти в слові')
     function countLetterInWord(word, letter){
         let lowerWord = word.toLowerCase()
+        let lowerSearchLetter = letter.toLowerCase()
         let numLetters = []
         for (let i = 0; i <= lowerWord.length; i++) {
-            if (lowerWord[i] == letter){
+            if (lowerWord[i] == lowerSearchLetter){
                 numLetters.push(word[i])
             }
         }
@@ -140,7 +141,8 @@ document.getElementById('function_11').onclick = () =>{
     let searchLetterForDeleting = prompt('Введіть літери які необхідно видалити зі слова')
     function countLetterDeleting(word, letter){
         let lowerWord = word.toLowerCase()
-        let result = lowerWord.split(letter).join('')
+        let lowerLetterForDeleting = letter.toLowerCase()
+        let result = lowerWord.split(lowerLetterForDeleting).join('')
         return result
     }
     document.querySelector('.func_result').innerHTML = `
