@@ -21,7 +21,7 @@ document.querySelector(".func_1").onclick = () => {
 document.querySelector(".func_2").onclick = () => {
     const number = prompt('Введіть число яке необхідно підняти до степеня')
     const expon = prompt('Введіть степінь')
-    function nuberExpon(number, exp){
+    function numberExpon(number, exp){
         let result = 1
         if (exp < 0){
             exp *= -1
@@ -32,7 +32,7 @@ document.querySelector(".func_2").onclick = () => {
         return result
     }
     document.querySelector('.func_result').innerHTML = `
-    <p class='result_text'> Функція №2: Результат виконання - ${nuberExpon(number,expon)}</p>
+    <p class='result_text'> Функція №2: Результат виконання - ${numberExpon(number,expon)}</p>
     `
 }
 
