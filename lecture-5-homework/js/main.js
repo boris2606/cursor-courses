@@ -17,13 +17,9 @@ console.log(`Згенерований випадковий масив довжи
 
 // Завдання №2 Вирахування моди всіх переданих значень
 function getModa(...numbers){
-    const countItems = {}; // Збереження результату
-    for (const item of numbers) {
-    // Якщо елемент вже присутній то прибавляємо 1,якщо ні ставимо значення 1
-        countItems[item] = countItems[item] ? countItems[item] + 1 : 1;
-    }
-    // Обробляємо ключі об'єктук, відфільтровуємо всі що менше 1 
-    return result = Object.keys(countItems).filter((item) => countItems[item] > 1);
+    return duplicates = numbers.filter((number, index, array) => {
+        return array.indexOf(number) !== index
+    });
 }
 console.log(`Мода переданих аргументів масиву [${randomArray}] являється: ${getModa(...randomArray)} `);
 
