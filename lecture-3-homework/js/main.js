@@ -1,6 +1,6 @@
 // Функція №1 Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі.
 
-document.querySelector(".func_1").onclick = () => {
+document.getElementById('function_1').onclick = () => {
     const numberFuncOne = prompt('Введіть будь-яке число щоб отримати найбильшу цифру в цьому числі')
     function getMaxDigit(number){
         if (number){
@@ -18,7 +18,7 @@ document.querySelector(".func_1").onclick = () => {
 
 
 //Функція №2 Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
-document.querySelector(".func_2").onclick = () => {
+document.getElementById('function_2').onclick = () => {
     const number = prompt('Введіть число яке необхідно підняти до степеня')
     const expon = prompt('Введіть степінь')
     function numberExpon(number, exp){
@@ -38,7 +38,7 @@ document.querySelector(".func_2").onclick = () => {
 
 
 //Функція №3 Створити функцію, яка форматує ім'я, роблячи першу букву великою.
-document.querySelector(".func_3").onclick = () => {
+document.getElementById('function_3').onclick = () => {
     const personName = prompt("Введіть своє ім'я")
     function fixName(name){
         const fixRegister = name.toLowerCase()
@@ -50,7 +50,7 @@ document.querySelector(".func_3").onclick = () => {
 }
 
 // Функція №4 Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати.
-document.querySelector(".func_4").onclick = () => {
+document.getElementById('function_4').onclick = () => {
     const cashWithOutTax = prompt('Введіть Вашу заробітню плату')
     function cleanCash(cash){
         let tax = 18 + 1.5
@@ -62,7 +62,7 @@ document.querySelector(".func_4").onclick = () => {
 }
 
 // Функція №5 Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M.
-document.querySelector(".func_5").onclick = () => {
+document.getElementById('function_5').onclick = () => {
     let minValue = prompt('Введіть мінімальне значення для діапазону')
     let maxValue = prompt('Введіть максимальне значення діапазону')
     function getRandomNumber(min,max){
@@ -74,7 +74,7 @@ document.querySelector(".func_5").onclick = () => {
 }
 
 // Функція №6 Створити функцію, яка рахує скільки разів певна буква повторюється в слові. 
-document.querySelector('.func_6').onclick = () =>{
+document.getElementById('function_6').onclick = () =>{
     let word = prompt('Введіть слово')
     let searchLetter = prompt('Введіть букву кількість яких необхідно знайти в слові')
     function countLetterInWord(word, letter){
@@ -93,7 +93,7 @@ document.querySelector('.func_6').onclick = () =>{
 }
 
 // Функція №7 та 8 Функція, яка конвертує долари в гривні та навпаки в залежності віднаявності символа $ або UAH в рядку.
-document.querySelector('.func_7').onclick = () =>{
+document.getElementById('function_7').onclick = () =>{
     let money = prompt('Введіть бажану суму та тип коштів для конвертації. УВАГА! Доступі валюти лише "$" та "UAH"')
     function convertMoney(money){
         let lowerMoney = money.toLowerCase()
@@ -114,7 +114,7 @@ document.querySelector('.func_7').onclick = () =>{
     `
 }
 // Функція № 9 Функція генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
-document.querySelector('.func_9').onclick = () =>{
+document.getElementById('function_9').onclick = () =>{
     let passLength = Number(prompt('Введіть бажану довжину випадкового паролю', 8))
     if (passLength == 0 || passLength == null || passLength == undefined ) {
         passLength = 8
@@ -135,7 +135,7 @@ document.querySelector('.func_9').onclick = () =>{
 }
 
 // Функція №11 Функція, яка видаляє всі букви з речення.
-document.querySelector('.func_11').onclick = () =>{
+document.getElementById('function_11').onclick = () =>{
     let word = prompt('Введіть слово')
     let searchLetterForDeleting = prompt('Введіть літери які необхідно видалити зі слова')
     function countLetterDeleting(word, letter){
@@ -149,7 +149,7 @@ document.querySelector('.func_11').onclick = () =>{
 }
 
 // Функція №12 Функція, яка перевіряє, чи є слово паліндромом.
-document.querySelector('.func_12').onclick = () =>{
+document.getElementById('function_12').onclick = () =>{
     let word = prompt('Введіть слово для звірчи чи воно являється паліндромом')
     function checkPalindrom(word){
         let notReversed = word.toLowerCase().split("").filter(element => element != ' ').join('')
