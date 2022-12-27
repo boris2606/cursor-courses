@@ -32,7 +32,7 @@ document.getElementById('function_2').onclick = () => {
         return result
     }
     document.querySelector('.func_result').innerHTML = `
-    <p class='result_text'> Функція №2: Результат виконання - ${numberExpon(number,expon)}</p>
+    <p class='result_text'> Функція №2: Результат виконання : ${numberExpon(number,expon)}</p>
     `
 }
 
