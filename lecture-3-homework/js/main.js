@@ -23,11 +23,11 @@ document.getElementById('function_2').onclick = () => {
     const expon = prompt('Введіть степінь')
     function numberExpon(number, exp){
         let result = 1
-        if (exp < 0){
-            exp *= -1
-        }
-        for (let i = 0; i < exp; i++) {
+        for (let i = 0; i < Math.abs(exp); i++) {
             result *= number
+        }
+        if (exp < 0){
+            result = 1/result
         }
         return result
     }
