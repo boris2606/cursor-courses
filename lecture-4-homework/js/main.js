@@ -6,9 +6,9 @@ const marks = [4,5,5,3,4,5]
 let pairsCreated = getCreatePair(students)
 function getCreatePair(students){
     return new Array(
-        [students[0] + ' i ' + students[2]],
-        [students[1] + ' i ' + students[3]],
-        [students[4] + ' i ' + students[5]])
+        [students[0],students[2]],
+        [students[1],students[3]],
+        [students[4],students[5]])
 }
 
 // Додавання теми
@@ -16,7 +16,7 @@ let pairsWithTheme = pushThemeFucn(pairsCreated,themes)
 function pushThemeFucn(pairs,theme){
     const pairsWithTheme = []
     for (let i = 0; i < pairs.length && theme.length ; i++) {
-        pairsWithTheme.push([...pairs[i],theme[i]])    
+        pairsWithTheme.push([pairs[i].join(' i '),theme[i]])    
     }
     return pairsWithTheme
 }
