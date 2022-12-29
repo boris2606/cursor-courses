@@ -1,6 +1,3 @@
-//Початкві масиви для деяких завдань
-let arrModa = [1,3,3,4,5,6,7,8,8,1]
-
 // Завдання№ 1 Генерація масиву з випадковими числами
 let arrLength = Number(prompt('Введіть бажану довжину масиву'))
 let arrMinNumber = Number(prompt('Введіть мінімальне значення масиву'))
@@ -17,11 +14,20 @@ console.log(`Згенерований випадковий масив довжи
 
 // Завдання №2 Вирахування моди всіх переданих значень
 function getModa(...numbers){
-    return duplicates = numbers.filter((number, index, array) => {
-        return array.indexOf(number) !== index
-    });
+    const arrModaValues = []
+    const countItems = {}; // збереження проміжкового результату
+    for (const item of numbers) {
+        countItems[item] = countItems[item] ? countItems[item] + 1 : 1; // Формую обєкт ключ (число), значення (кількість повторів)
+    }
+    const maxReplNumber = (Math.max(...Object.values(countItems))); // Відбираю максимальну кількість повторів з обєкту
+    for (const [key, value] of Object.entries(countItems)) { // Відбираю значення обєкту в якому кількість повторів відповідає максимальному значенню повторів обєкта
+        if (value == maxReplNumber){
+            arrModaValues.push(key) // Додаю співпадіння в масив
+        }
+      }
+    return arrModaValues.join(' та ') // повертаю значення 
 }
-console.log(`Мода переданих аргументів масиву [${randomArray}] являється: ${getModa(...randomArray)} `);
+console.log(`Мода переданих аргументів ${randomArray} являється: ${getModa(...randomArray)} `);
 
 // Завдання №3 Середнє арифметичне всіх переданих значень
 function getAverage(...numbers){
@@ -64,13 +70,7 @@ console.log(`Кількість чисел більших 0: ${positiveNumer(1,-
 
 // Завдання №7 Фільтрування всіх елементів масиву що діляться на 5
 function getDividedByFive(...numbers){
-    const numDivFive = []
-    numbers.filter((num) => {
-        if (num % 5 === 0){
-            numDivFive.push(num)
-        }
-    })
-    return numDivFive
+    return numbers.filter((num) => num % 5 == 0)
 }
 console.log(`Фільтрація всіх значень що діляться на 5:  ${getDividedByFive(...randomArray)}`);
 
