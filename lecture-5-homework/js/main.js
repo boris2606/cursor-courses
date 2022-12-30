@@ -32,27 +32,24 @@ console.log(`Мода переданих аргументів ${randomArray} я�
 // Завдання №3 Середнє арифметичне всіх переданих значень
 function getAverage(...numbers){
     const sum = numbers.reduce((acc, number) => acc + number, 0);
-    return sum / numbers.length;
+    return (sum / numbers.length).toFixed(2);
 }
 console.log(`Середнє арифметичне всіх переданих значень ${getAverage(...randomArray)}`);
 
 // Завдання №4 Вирахування медіану переданих чисел
 function getMedian(...numbers){
-    const halfOfArr = numbers.length / 2
-    const sortedArr = numbers.sort((a,b) => a - b)
-    return (sortedArr[halfOfArr] + sortedArr[halfOfArr - 1]) / 2
+        numbers.sort((a, b) => a - b);
+        if (numbers.length % 2) {
+            return numbers[Math.floor(numbers.length / 2)];
+        } else {
+            return (numbers[numbers.length / 2] + numbers[numbers.length / 2 - 1]) / 2;
+        }
 }
 console.log(`Медіана переданих значень ${getMedian(...randomArray)}`);
 
 // Завдання №5 Фільтрація парних чисел
 function filterEvenNumbers(...numbers){
-    const numPar = []
-    numbers.filter((num) => {
-        if (num % 2 !== 0){
-            numPar.push(num)
-        }
-    })
-    return numPar
+    return numbers.filter((num) => num % 2 !== 0)
 }
 console.log(`Фільтрація всіх парних переданих значень ${filterEvenNumbers(...randomArray)}`);
 
