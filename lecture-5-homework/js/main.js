@@ -24,7 +24,7 @@ function getModa(...numbers){
         if (value == maxReplNumber){
             arrModaValues.push(key) // Додаю співпадіння в масив
         }
-      }
+    }
     return arrModaValues.join(' та ') // повертаю значення 
 }
 console.log(`Мода переданих аргументів ${randomArray} являється: ${getModa(...randomArray)} `);
