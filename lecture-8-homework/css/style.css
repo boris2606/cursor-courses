@@ -23,6 +23,9 @@ button:hover{
 .default_values{
     margin: 10px auto;
 }
+.default_values:hover{
+    background: rgba(76, 128, 206, 0.471)
+}
 #new_mark,
 #new_mark_budget {
     border: 1px solid #ccc
