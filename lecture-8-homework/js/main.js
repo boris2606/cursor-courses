@@ -94,15 +94,14 @@ function createAndChekPerson(person,nameOfClass){ // Створення та п�
         createButtonHideWithFields()
         person.setMarks = [5,4,4,5]
     }
+    defaultValues.style.display = 'none'
     return person
 }
 createButtonStudent.onclick = () =>{ // Створення студенту через конструктор
     student = createAndChekPerson(student,Student)
-    defaultValues.style.display = 'none'
 }
 createButtonBudgetStudent.onclick = () =>{ // Створення бюджетного студенту через конструктор
     budgetStudent = createAndChekPerson(student,BudgetStudent)
-    defaultValues.style.display = 'none'
 }
 
 // Отримання оцінок
