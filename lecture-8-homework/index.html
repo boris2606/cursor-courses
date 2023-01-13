@@ -1,0 +1,61 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Cursor courses</title>
+    </head>
+    <body>
+        <main>
+            <div class="content">
+                <form action=""onsubmit="return false" class="form_for_persons">
+                    <button class="default_values">Заповнити поля за замовчуванням</button>
+                    <div class="wrapper_inputs">
+                        <input type="text" id="univers_value" class="close" placeholder="Ведіть університет" required>
+                        <input type="number" id="course_value" class="close" placeholder="Ведіть курс (тільки чило)" required>
+                        <input type="text" id="name_value" class="close" placeholder="Ведіть повне імя" required>    
+                    </div>
+                    <div class="wrapper_button_create">
+                        <button type='text' id="submit_form_student">Створити студента та отримати інформацію про нього</button>
+                        <button type='text' id="submit_form_budget_student">Створити бютжетного студента та отримати інформацію про нього</button>
+                    </div>
+                </form>
+                <div class="wrapper_buttons_student">
+                    <div class="buttons_student">
+                        <button class="get_marks_btn"> Отримати оцінки студента </button>
+                        <div class="wrapper_add_mark">
+                            <input type="number" min="0" id="new_mark" placeholder="Вкажіть оцінку" >
+                            <button class="add_mark_btn">Поставити оцінку</button>
+                            <button class="add_more_mark">Додати оцінку</button>
+                        </div>
+                        <button class="average_btn">Вирахувати середній бал</button>
+                        <button class="dismiss_btn">Виключити студента</button>
+                        <button class="recover_btn">Відновити студента</button>
+                    </div>
+                </div>
+                <div class="wrapper_buttons_budget_student">
+                    <div class="buttons_budget_student">
+                        <p class="tit_budget">Створено бютжетного сдутента, розпочато нарахування стипендії, якщо все добре звісно (-_-)</p>
+                        <div class="wrapper_button_budget">
+                            <div class="wrapper_add_mark">
+                                <input type="number" id="new_mark_budget" placeholder="Вкажіть оцінку" >
+                                <button class="add_mark_btn_budget">Поставити оцінку</button>
+                                <button class="add_more_mark_budget">Додати оцінку</button>
+                            </div>
+                            <button class="average_btn_budget">Вирахувати середній бал</button>
+                            <button class="dismiss_btn_budget">Виключити студента</button>
+                            <button class="recover_btn_budget">Відновити студента</button>
+                        </div>
+                    </div>
+                </div>
+                <button id="enable_form">Створити нового студента</button>
+                <div class="result">
+                    
+                </div>
+                <p class="scholarship_popup"></p>
+            </div>
+        </main>
+        <script src="js/main.js" type="module"></script>
+    </body>
+</html>

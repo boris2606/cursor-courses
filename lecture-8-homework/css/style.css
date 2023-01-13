@@ -1,0 +1,124 @@
+@import url(fonts.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+button,
+input{
+    cursor: pointer;
+    font: 600 15px Comfortaa;
+    margin: 5px;
+    cursor: pointer;
+    border: 0px solid;
+    border-radius: 15px;
+    padding: 5px 10px;
+    transition: .5s all ease-in-out;
+    outline: none;
+}
+button:hover{
+    background:rgba(83, 180, 106, 0.471)
+}
+.default_values{
+    margin: 10px auto;
+}
+#new_mark,
+#new_mark_budget {
+    border: 1px solid #ccc
+}
+.content{
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.form_for_persons{
+    flex-wrap: wrap;
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto;
+}
+.form_for_persons button {
+    width: 100%;
+    background: rgba(204, 204, 204, 0.471);
+    color: #fff;
+    border: 0px solid;
+    transition: .3s all ease-in-out;
+    width: 100%;
+    max-width: 300px;
+    color: black;
+    border-radius: 15px;
+    padding: 15px 
+}
+.tit_budget {
+    font: 900 24px Comfortaa;
+    text-transform: uppercase;
+    margin: 20px;
+}
+.wrapper_inputs{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+.wrapper_button_create{
+    display: flex;
+    justify-content: space-around;
+}
+.wrapper_inputs input { 
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 0 solid;
+    background: rgba(234, 234, 234, 0.708);
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px;
+}
+.wrapper_buttons_student,
+.wrapper_buttons_budget_student{
+    display: none;
+    text-align: center;
+}
+.buttons_student{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column;
+}
+.buttons_student,
+.buttons_budget_student {
+    justify-content: space-around;
+    margin:  0 auto;
+}
+
+#enable_form{
+    display: none;
+    margin: 0 auto;
+}
+.recover_btn,
+.recover_btn_budget{
+    display: none;
+    margin: 5px auto;
+}
+.scholarship_popup{ 
+    position: fixed;
+    top: 20px;
+    right: -20px;
+}
+.dismiss_btn:hover,
+.dismiss_btn_budget:hover {
+    background:red;
+    color:#fff
+}
+.scholarship_popup{
+    font: 900 16px Rubik;
+    text-transform: uppercase;
+    background:rgba(83, 180, 106, 1);
+    color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+}
+.student_result{
+    margin: 15px;
+    font: 700 14px Comfortaa;
+}
