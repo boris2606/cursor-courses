@@ -88,6 +88,10 @@ button:hover{
     display: none;
     text-align: center;
 }
+.wrapper_button_budget{
+    display: flex;
+    flex-flow: column;
+}
 .buttons_student{
     display: flex;
     justify-content: space-around;

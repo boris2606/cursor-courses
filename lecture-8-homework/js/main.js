@@ -98,9 +98,11 @@ function createAndChekPerson(person,nameOfClass){ // Створення та п�
 }
 createButtonStudent.onclick = () =>{ // Створення студенту через конструктор
     student = createAndChekPerson(student,Student)
+    defaultValues.style.display = 'none'
 }
 createButtonBudgetStudent.onclick = () =>{ // Створення бюджетного студенту через конструктор
     budgetStudent = createAndChekPerson(student,BudgetStudent)
+    defaultValues.style.display = 'none'
 }
 
 // Отримання оцінок
@@ -208,9 +210,11 @@ function enableInputs (arrInput){ // Відкриття полів для вво
             recoverBtn.style.display = 'none'
         }
     }
+    defaultValues.style.display = 'block'
     openAddMoreMarkStudent()
     removeButton.style.display = 'none'
     wrapperBtn.style.display = 'none'
+    dismissBtn.disabled = false
     createButtonshow()
     if (budgetStudent) {
         clearInterval(budgetStudent.interval)
