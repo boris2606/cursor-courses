@@ -1,0 +1,44 @@
+@import url(fonts.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.btn_anim{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    border-bottom:2px solid rgba(54, 81, 45, 0.736);
+    border-top:2px solid rgba(54, 81, 45, 0.736);
+    border-right: 0px solid;
+    border-left: 0px solid;
+    text-transform: uppercase;
+    font:900 12px Comfortaa;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: .5s all ease-in-out;
+}
+.btn_anim:hover {
+    color:#fff;
+    background: rgba(54, 81, 45, 0.736)
+}
+div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(189, 211, 182, 0.736);
+}
+.container{
+    margin: 15% auto;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+}
+@keyframes shadow {
+    from { transform: rotate(0);}
+    to { transform: rotate(90deg);}
+}
