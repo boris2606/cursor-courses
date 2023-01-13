@@ -61,6 +61,11 @@ button:hover{
     justify-content: space-around;
     margin: 20px;
 }
+#submit_form_student:hover,
+#submit_form_budget_student:hover {
+    background:rgba(83, 180, 106, 1);
+    color: #fff;
+}
 .wrapper_button_create{
     display: flex;
     justify-content: space-around;
