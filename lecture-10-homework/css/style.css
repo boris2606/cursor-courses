@@ -35,9 +35,6 @@ main{
     border: 2px solid black;
     background: rgba(75, 74, 74, 0.333);
     border-radius: 10px;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
 }
 .tit_key{
     font: 900 40px Comfortaa;
@@ -47,11 +44,13 @@ main{
 .name_sound{
     font: 700 16px Oswald;
     line-height: 15px;
+    color:#ffc800af;
 }
 .active {
-    transform: scale(1.1);
+    transform: scale(1.2);
     border-color: #ffc800af;
     box-shadow: 0 0 1rem #c39900;
+    transition: .2s all ease-in-out;
 }
 .active .tit_key{
     color:#fff
