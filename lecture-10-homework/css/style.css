@@ -1,0 +1,58 @@
+@import url(fonts.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.video_bg{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    width: -moz-available;    
+    width: -webkit-fill-available;  
+    width: fill-available;
+}
+main{
+    position: relative;
+    z-index: 2;
+}
+.block_with_wrapper{
+    margin: 25% auto;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.key{
+    padding: 10px;
+    margin: 0 10px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border: 2px solid black;
+    background: rgba(75, 74, 74, 0.333);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+.tit_key{
+    font: 900 40px Comfortaa;
+    color: rgb(183, 180, 180);
+    text-transform: uppercase;
+}
+.name_sound{
+    font: 700 16px Oswald;
+    line-height: 15px;
+}
+.active {
+    transform: scale(1.1);
+    border-color: #ffc800af;
+    box-shadow: 0 0 1rem #c39900;
+}
+.active .tit_key{
+    color:#fff
+}
