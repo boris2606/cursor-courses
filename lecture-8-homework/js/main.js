@@ -1,5 +1,29 @@
 import {
-    addMoreMarkBudget,addMoreMark,newMarkAddBudget,addMarkBtnBudget,recoverBtnBudget,dismissBtnBudget,averageBtnBudget,inputs,removeButton,createButtonStudent,createButtonBudgetStudent,valUnivers,valCourse,valName,resultBlock,wrapperBtn,wrapperBtnBudget,getMarksBtn,addMarkBtn,newMarkAdd,averageBtn,dismissBtn,recoverBtn,scholarshipPopup,defaultValues
+    addMoreMarkBudget,
+    addMoreMark,
+    newMarkAddBudget,
+    addMarkBtnBudget,
+    recoverBtnBudget,
+    dismissBtnBudget,
+    averageBtnBudget,
+    inputs,
+    removeButton,
+    createButtonStudent,
+    createButtonBudgetStudent,
+    valUnivers,
+    valCourse,
+    valName,
+    resultBlock,
+    wrapperBtn,
+    wrapperBtnBudget,
+    getMarksBtn,
+    addMarkBtn,
+    newMarkAdd,
+    averageBtn,
+    dismissBtn,
+    recoverBtn,
+    scholarshipPopup,
+    defaultValues
 } from "./variables.js"
 class Student {
     constructor(university,course,fullName){
@@ -8,7 +32,7 @@ class Student {
         this.fullName = fullName
     }
     getInfo(){
-        return `<p class="student_result">Інформація про студента: Студент ${this.course}-го курсу, навчальний заклад: ${this.university} , повне імя студента: ${this.fullName}</p>`
+        return `Інформація про студента: Студент ${this.course}-го курсу, навчальний заклад: ${this.university} , повне імя студента: ${this.fullName}`
     }
     getAverageMark(){
         const sum = this.marks.reduce((acc, number) => acc + number, 0)
@@ -82,13 +106,13 @@ function createAndChekPerson(person,nameOfClass){ // Створення та п�
         alert("Не всі поля заповнені, заповніть будь ласка поля");
         return undefined
     } else if (nameOfClass === Student) {
-        resultBlock.innerHTML = `${person.getInfo()}`
+        resultBlock.innerHTML = `<p class="student_result">${person.getInfo()}</p>`
         createButtonHideWithFields()
         removeButton.style.display = 'block'
         wrapperBtn.style.display = 'block'
         person.setMarks = [5,4,4,5]
     } else if (nameOfClass === BudgetStudent){
-        resultBlock.innerHTML = `${person.getInfo()}`
+        resultBlock.innerHTML = `<p class="student_result">${person.getInfo()}</p>`
         removeButton.style.display = 'block'
         wrapperBtnBudget.style.display = 'block'
         createButtonHideWithFields()
