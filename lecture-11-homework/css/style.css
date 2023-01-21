@@ -1,0 +1,16 @@
+@import url(fonts.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main  {
+    margin: 22% auto;
+    width: 400px;
+    text-align: center;
+    font:900 40px Comfortaa;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 
+}
