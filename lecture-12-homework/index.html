@@ -1,0 +1,41 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Cursor courses</title>
+    </head>
+    <body>
+        <main>
+            <section class="wraper_choice">
+                <div class="actors_link">
+                    <p class="links_txt">Переглянути <br> акторів</p>
+                </div>
+                <div class="planet_link">
+                    <p class="links_txt">Переглянути <br> планети</p>
+                </div>
+            </section>
+            <form action="" class="actors_form" onsubmit="return false">
+                <input type="number" min="1" max="6" class="input_epizode" placeholder="Виберіть епізод" required> 
+                <button class="btn_info">отримати інформацію</button>
+            </form>
+            <a href="index.html" class="link_start"> <img class="arrow" src="assets/img/arrow.png"> </a>
+            <video src="assets/video/bg_video_2.mp4" class="video_bg" muted autoplay loop playsinline ></video>
+            <section class="wrapper_actors">
+                <!-- сюди прилітають актори -->
+            </section>
+            <div class="wrapper_title_txt_planets">
+                <!-- тут текст по сторінкам планет -->
+            </div>
+            <section class="wrapper_planets">
+                <!-- сюди прилітають планети -->
+            </section>
+            <div class="wrapper_buttons_planet">
+                <button class="controll_btn" id="prev">Попередня</button>
+                <button class="controll_btn" id="next">Наступна</button>
+            </div>
+        </main>
+        <script type="module" src="js/main.js"></script>
+    </body>
+</html>

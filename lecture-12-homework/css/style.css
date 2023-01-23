@@ -1,0 +1,295 @@
+@import url(fonts.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+img{
+    padding: 3px;
+    transition: all .5s ease-in-out;
+}
+.video_bg{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+    width: 110%;
+}
+.wraper_choice{
+    display: flex;
+}
+.actors_link{
+    background: #fff;
+    transition: .5s all ease-in-out;
+    font:900 50px Oswald;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+}
+.actors_link::before{
+    content: " ";
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    opacity: .4; 
+    z-index: 0;
+    background:url(../assets/img/actor_img.png) no-repeat center;
+    background-size: cover;
+}
+.actors_link:hover{
+    flex: 2 1 100px;
+}
+.input_epizode{
+    min-width: 140px;
+}
+.input_epizode,
+.btn_info{
+    border: 0px solid;
+    border-radius: 17px 0 0 17px;
+    padding: 7px;
+    font: 800 12px Rubik;
+    outline: none;
+}
+.btn_info{
+    border-radius: 0px 17px 17px 0px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.planet_link{
+    color: #fff;
+    font:900 50px Oswald;
+    background: black;
+    transition: .5s all ease-in-out;
+    position:relative;
+    z-index: 1;
+}
+.planet_link::after{
+    content: " ";
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    width: 100%; 
+    height: 100%; 
+    opacity: .4; 
+    z-index: 0;
+    background:url(../assets/img/planet_img.png) no-repeat center;
+    background-size: cover;
+}
+.planet_link:hover{
+    flex: 2 1 100px;
+}
+.link_img_actors{
+    position: absolute;
+    width: 70%;
+    bottom: -3px;
+    left:0;
+}
+.link_img_planet{
+    position: absolute;
+    width: 70%;
+    bottom: 0;
+    right: 0;
+}
+.link_start{
+    display: none;
+    width: 123px;
+    height: 120px;
+    position: fixed;
+    bottom: -60px;
+    left: -60px;
+    background: rgba(34, 60, 80, 1);
+    color: #fff;
+    font: 900 15px Rubik;
+    text-decoration: none;
+    border-radius: 80px 80px 0px 0px;
+    text-align: center;
+    padding: 10px 0px;
+    transform: rotateZ(45deg);
+    transition: .5s all ease-in-out;
+    z-index: 3;
+}
+.arrow{
+    width: 40px;
+    height: 40px;
+    transform: rotate(-45deg);
+}
+.link_start:hover{
+    left: -45px;
+    bottom: -45px
+}
+.links_txt{
+    margin: 20% 10%;
+    transform: scale(1.1);
+}
+.wraper_choice div {
+    flex: 1 1 100px;
+    cursor: pointer;
+    height: 100vh;
+}
+.actors_form{
+    position: relative;
+    text-align: center;
+    display: none;
+    margin: 5px auto 20px;
+    max-width: 600px;
+    padding: 10px;
+    border-radius: 0px 50px;
+    background:rgba(34, 60, 80, 0.95);
+    z-index:2
+}
+.about_episod{
+    margin: 5px;
+    color: #fff;
+    font: 800 14px Rubik;
+}
+.span_about_episod{
+    text-transform: uppercase;
+    color:rgb(246 141 5);
+}
+.wrapper_actors,
+.wrapper_planets{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    z-index: 2;
+}
+.box_actor,
+.box_planet{
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 15px;
+    width: 100%;
+    max-width: 200px;
+    min-height: 100;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 1px 5px 14px 4px rgba(34, 60, 80, 0.4);
+    transition: all .5s ease-in-out;
+    z-index: 2;
+}
+.box_actor:hover{
+    background-color: rgba(34, 60, 80, 0.909);
+}
+.box_actor:hover .actor_age{
+    color: #fff;
+}
+.box_actor:hover .gender_wrapper{
+    color: #fff
+}
+
+.box_planet:hover{
+    background-color: rgba(34, 60, 80, 0.909);
+}
+.box_planet:hover .planet_population{
+    color: #fff;
+}
+.box_planet:hover .planet_diameter{
+    color: #fff
+}
+
+.box_actor:hover img{
+    background: #fff;
+    border-radius: 7px;
+}
+.planet_style{
+    border-radius: 50%;
+    margin: 0 auto;
+    transition: all .5s ease-in-out;
+}
+.planet_style:hover{
+    animation:none;
+    transform:scale(3);
+}
+.actor_style{
+    width: 115px;
+    height: 140px;
+    margin: 10px auto;
+    border-radius: 10px;
+    transition: .5s all ease-in-out;
+    box-shadow: 1px 0px 5px 2px rgb(34 60 80 / 20%) inset;
+}
+.actor_style:hover{
+    transform: scale(1.5);
+}
+.actor_name,
+.planet_name{
+    font: 900 18px Comfortaa;
+    padding: 5px;
+    box-shadow: 1px 0px 5px 2px rgb(34 60 80 / 20%) inset;
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 5px
+}
+.actor_age,
+.planet_population,
+.planet_diameter{
+    font: 600 14px Rubik;
+    transition: all .3s ease-in-out;
+    text-transform: uppercase
+}
+.gender_wrapper{
+    display: flex;
+    justify-content: center;
+    font: 600 12px Rubik;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out
+}
+.gender{
+    margin-right: 5px;
+    align-self: center;
+}
+
+.wrapper_title_txt_planets{
+    position: relative;
+    display: none;
+    text-align: center;
+    text-align: center;
+    background: rgba(34, 60, 80, 0.909);
+    padding: 10px;
+    z-index: 2;
+}
+.wrapper_buttons_planet{
+    display: none;
+    text-align: center;
+    margin: 30px auto;
+    position: relative;
+    z-index: 2;
+}
+.tit_text_planet{
+    font: 900 25px Rubik;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 1px 0px 5px 2px rgb(34 60 80 / 20%) inset;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 30px 0;
+    text-transform: uppercase;
+}
+#next{
+    border-radius: 0 0 35px 0px;
+}
+#prev{
+    border-radius: 35px 0 0 10px;
+}
+.controll_btn{
+    cursor:pointer;
+    background: #fff;
+    margin: 0 15px;
+    width: 150px;
+    padding: 10px;
+    border: 0px solid;
+    font: 900 15px Rubik;
+    text-transform: uppercase;
+    box-shadow: 1px 5px 14px 4px rgba(34, 60, 80, 0.2);
+    transition: all .5s ease-in-out;
+}
+.controll_btn:hover{
+    color:#fff;
+    background: rgba(34, 60, 80, 0.909);
+}
