@@ -1,3 +1,5 @@
+// import planets from './planets.json' assert {type: 'json'}; // Імпорт даних по планетам
+// import actors from './actors.json' assert {type: 'json'}; // Імпорт даних по акторам
 import { planets } from "./planets.js";
 import { actors } from "./actors.js";
 

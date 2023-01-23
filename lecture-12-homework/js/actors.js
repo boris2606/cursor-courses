@@ -1,6 +1,6 @@
 export const actors = {
     "C-3PO": {
-        "url": "../assets/img/actors/C-3PO.jpeg"
+        "url": "../lecture-12-homework/assets/img/actors/C-3PO.jpeg"
     },
     "R2-D2": {
         "url": "../assets/img/actors/R2-D2.webp"
