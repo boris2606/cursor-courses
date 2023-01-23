@@ -1,5 +1,3 @@
-// import planets from './planets.json' assert {type: 'json'}; // Імпорт даних по планетам
-// import actors from './actors.json' assert {type: 'json'}; // Імпорт даних по акторам
 import { planets } from "./planets.js";
 import { actors } from "./actors.js";
 
@@ -47,8 +45,8 @@ async function takeInformationActor(user){ // Функція отримання 
     // Формування іконки статі
     const maleIcon = new Image(25,25);  // Створення іконок
     const femaleIcon = new Image(25,25);   
-    maleIcon.src = '../assets/img/male1.png'; // Шлях до іконок
-    femaleIcon.src = '../assets/img/female1.png';
+    maleIcon.src = '../lecture-12-homework/assets/img/male1.png'; // Шлях до іконок
+    femaleIcon.src = '../lecture-12-homework/assets/img/female1.png';
     // Формування фото актора
     let actorImg = new Image(70,70);  // Створення іконок
     for (const [key, value] of Object.entries(actors)) { // Відбираю значення обєкту розділяючи масив на ключ та значення
