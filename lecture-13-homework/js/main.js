@@ -48,9 +48,9 @@ infiniteBtn.onclick = () => {
 }
 sizeUpBtn.onclick = () => {
     startText.style.fontSize = fontGenerator.next('up').value
-    currentSize.innerHTML = `Поточний розмір шрифта: ${startText.style.fontSize}`
+    currentSize.innerHTML = `Поточний розмір шрифта:  ${startText.style.fontSize}`
 }
 sizeDownBtn.onclick = () => {
     startText.style.fontSize = fontGenerator.next('down').value
-    currentSize.innerHTML = `Поточний розмір шрифта: ${startText.style.fontSize}`
+    currentSize.innerHTML = `Поточний розмір шрифта:  ${startText.style.fontSize}`
 }
