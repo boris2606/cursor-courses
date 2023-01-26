@@ -76,20 +76,20 @@ inputEpizode.addEventListener('input', e => {
     epizodeValue = e.target.value
 })
 async function getAllActorsFromMove(){ // Відбір всіх акторів з епізоду фільму
-    const request = await fetch(`${BASE_URL_SWAPI}films/${epizodeValue}`)
-    const data = await request.json();
     // Звірка чи епізод не 0 та не більше 6
     if (epizodeValue > 0 && epizodeValue <= 6) {
+        const request = await fetch(`${BASE_URL_SWAPI}films/${epizodeValue}`)
+        const data = await request.json();
         // Додавання інформації про епізод
         aboutEpisod.classList.add('about_episod') // Додавання класу до створеного обєкту
         aboutEpisod.innerHTML = `<span class='span_about_episod'>Про сюжет: </span> ${data.opening_crawl}` // Наповнення інформацією
         actorsForm.append(aboutEpisod)
+        // Отримання акторів
+        const arrActors = await data.characters
+        await arrActors.forEach(takeInformationActor); // Перехід до функції перебору акторів та отримання інформації про них
     } else { 
         aboutEpisod.innerHTML = ''
     }
-    
-    const arrActors = await data.characters
-    await arrActors.forEach(takeInformationActor); // Перехід до функції перебору акторів та отримання інформації про них
 }
 btnInfo.addEventListener('click', () => {
     wrapperActors.innerHTML = ''
