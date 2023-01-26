@@ -31,7 +31,7 @@ const iteratorFontSize = {
                     return {value: i-=2, done: false}
                 }
                 if (!move){
-                    return {value: i, done: false}
+                    return {value: i, done: true}
                 }
             }
         }
