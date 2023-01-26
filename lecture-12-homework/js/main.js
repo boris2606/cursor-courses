@@ -1,21 +1,24 @@
 import { planets } from "./planets.js";
 import { actors } from "./actors.js";
+function $(name){
+    return document.querySelector(name)
+}
 
 const BASE_URL_SWAPI = 'https://swapi.dev/api/',
-    backToStart = document.querySelector('.link_start'),
-    btnPlanet = document.querySelector('.wrapper_buttons_planet'),
-    btnNext = document.querySelector('#next'),
-    btnPrev = document.querySelector('#prev'),
-    wrapperActors = document.querySelector('.wrapper_actors'),
-    wrapperPlanets = document.querySelector('.wrapper_planets'),
-    titTxtPlanets = document.querySelector('.wrapper_title_txt_planets'),
-    actorsForm = document.querySelector('.actors_form'),
-    aboutEpisod = document.createElement('p'),
-    inputEpizode = document.querySelector('.input_epizode'),
-    btnInfo = document.querySelector('.btn_info'),
-    wrapperLink = document.querySelector('.wraper_choice'),
-    btnActorsLink = document.querySelector('.actors_link'),
-    btnPlanetLink = document.querySelector('.planet_link')
+    backToStart = $('.link_start'),
+    btnPlanet = $('.wrapper_buttons_planet'),
+    btnNext = $('#next'),
+    btnPrev = $('#prev'),
+    wrapperActors = $('.wrapper_actors'),
+    wrapperPlanets = $('.wrapper_planets'),
+    titTxtPlanets = $('.wrapper_title_txt_planets'),
+    actorsForm = $('.actors_form'),
+    aboutEpisod = $('p'),
+    inputEpizode = $('.input_epizode'),
+    btnInfo = $('.btn_info'),
+    wrapperLink = $('.wraper_choice'),
+    btnActorsLink = $('.actors_link'),
+    btnPlanetLink = $('.planet_link')
 
 // Робота з домом при переході до акторів
 btnActorsLink.addEventListener('click',()=>{
@@ -75,10 +78,15 @@ inputEpizode.addEventListener('input', e => {
 async function getAllActorsFromMove(){ // Відбір всіх акторів з епізоду фільму
     const request = await fetch(`${BASE_URL_SWAPI}films/${epizodeValue}`)
     const data = await request.json();
-    // Додавання інформації про епізод
-    aboutEpisod.classList.add('about_episod') // Додавання класу до створеного обєкту
-    aboutEpisod.innerHTML = `<span class='span_about_episod'>Про сюжет: </span> ${data.opening_crawl}` // Наповнення інформацією
-    actorsForm.append(aboutEpisod)
+    // Звірка чи епізод не 0 та не більше 6
+    if (epizodeValue > 0 && epizodeValue <= 6) {
+        // Додавання інформації про епізод
+        aboutEpisod.classList.add('about_episod') // Додавання класу до створеного обєкту
+        aboutEpisod.innerHTML = `<span class='span_about_episod'>Про сюжет: </span> ${data.opening_crawl}` // Наповнення інформацією
+        actorsForm.append(aboutEpisod)
+    } else { 
+        aboutEpisod.remove()
+    }
     
     const arrActors = await data.characters
     await arrActors.forEach(takeInformationActor); // Перехід до функції перебору акторів та отримання інформації про них
@@ -92,7 +100,6 @@ btnInfo.addEventListener('click', () => {
 
 // Робота з планетами
 function createPlanets (planet){
-    // Формування блоку інформації про планету
     // Створення картинки для планети
     let planetImg = new Image(70,70);  // Створення іконок
     for (const [key, value] of Object.entries(planets)) { // Відбираю значення обєкту розділяючи масив на ключ та значення
@@ -101,7 +108,8 @@ function createPlanets (planet){
             planetImg.classList.add('planet_style')
         };
     }
-
+    
+    // Формування блоку інформації про планету
     const boxPlanet = document.createElement('div')
     boxPlanet.classList.add('box_planet')
     const planetInfo = `${planetImg.outerHTML}
