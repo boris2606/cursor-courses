@@ -13,7 +13,7 @@ const BASE_URL_SWAPI = 'https://swapi.dev/api/',
     wrapperPlanets = $('.wrapper_planets'),
     titTxtPlanets = $('.wrapper_title_txt_planets'),
     actorsForm = $('.actors_form'),
-    aboutEpisod = $('p'),
+    aboutEpisod = document.createElement('p'),
     inputEpizode = $('.input_epizode'),
     btnInfo = $('.btn_info'),
     wrapperLink = $('.wraper_choice'),
@@ -85,7 +85,7 @@ async function getAllActorsFromMove(){ // Відбір всіх акторів �
         aboutEpisod.innerHTML = `<span class='span_about_episod'>Про сюжет: </span> ${data.opening_crawl}` // Наповнення інформацією
         actorsForm.append(aboutEpisod)
     } else { 
-        aboutEpisod.remove()
+        aboutEpisod.innerHTML = ''
     }
     
     const arrActors = await data.characters
