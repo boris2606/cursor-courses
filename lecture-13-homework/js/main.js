@@ -11,7 +11,7 @@ const sizeDownBtn = $('.size_down')
 
 // Створений бескінечний генератор
 function* createIdGenerator(){
-        var number = 1;
+        let number = 1;
         while(true){
             yield number++;
         }
