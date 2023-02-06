@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Playfair+Display:ital@1&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.header_wrapper{
+    display: flex;
+    height: 70px;
+    justify-content: space-around;
+    background: #233446;
+    align-items: center;
+    color: #fff;
+    font-family: Comfortaa;
+}
+.header_logo{
+    display: flex;
+    justify-content: center;
+    align-items:center
+}
+.logo_img{
+    width:30px;
+    height: 30px;
+}
+.logo_text{
+    text-transform: uppercase;
+    margin-left: 10px;
+    color:rgb(97,218,251);
+}
