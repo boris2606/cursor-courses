@@ -3,9 +3,10 @@ const generator = 123.965
 const powerStation = 90.2345
 
 const priceOfAllItems = charger + generator + powerStation // Ціна всіх товарів з залишком
-
 let roundedPriceItem = Math.round(charger) + Math.round(generator) + Math.round(powerStation) // Ціна всіх товарів округлена до меншого значення
-console.log(`
+
+function allValues(){
+    console.log(`
     Товар з максимальною вартісттю: ${Math.max(charger,generator,powerStation)}
     Товар з мінімальною вартісттю: ${Math.min(charger,generator,powerStation)}
     Вартість всіх товарів: ${charger + generator + powerStation}
@@ -18,8 +19,9 @@ console.log(`
     ${randomDiscount(generator)}
     ${randomDiscount(powerStation)}
 `)
+}
 
-function randomDiscount (item){ // Функція генерування випадкової знижки відосно до товару, та виведення даних
+function randomDiscount(item){ // Функція генерування випадкової знижки відосно до товару, та виведення даних
     const minVal = 1
     const maxVal = 100
     const discountValue = Math.round(Math.random() * (maxVal - minVal +1) + minVal)
@@ -36,3 +38,11 @@ function randomDiscount (item){ // Функція генерування вип�
     Коментар до рентабельності продажу товару : ${profit <=0 ? "Так собі торги" : "Краще щось ніж нічого ;)"}
     `
 }
+
+document.addEventListener('DOMContentLoaded',function(){
+    document.querySelector('.btn_take').onclick = () => {
+        allValues()
+    }
+})
+
+module.exports = allValues

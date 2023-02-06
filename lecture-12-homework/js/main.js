@@ -20,24 +20,6 @@ const BASE_URL_SWAPI = 'https://swapi.dev/api/',
     btnActorsLink = $('.actors_link'),
     btnPlanetLink = $('.planet_link')
 
-// Робота з домом при переході до акторів
-btnActorsLink.addEventListener('click',()=>{
-    wrapperLink.style.display = 'none'
-    btnPlanet.style.display = 'none'
-    wrapperPlanets.style.display = 'none'
-    titTxtPlanets.style.display = 'none'
-    actorsForm.style.display = 'block'
-    backToStart.style.display = 'block'
-})
-// Робота з домом при переході до планет
-btnPlanetLink.addEventListener('click',()=>{
-    wrapperActors.style.display = 'none'
-    wrapperLink.style.display = 'none'
-    backToStart.style.display = 'block'
-    titTxtPlanets.style.display = 'block'
-    btnPlanet.style.display = 'block'
-    getAllPlanets()
-})
 
 // Робота з акторами
 async function takeInformationActor(user){ // Функція отримання інформації про акторів
@@ -72,9 +54,7 @@ async function takeInformationActor(user){ // Функція отримання 
 }
 // Отримання значення інпуту по епізодам
 let epizodeValue = ''
-inputEpizode.addEventListener('input', e => {
-    epizodeValue = e.target.value
-})
+
 async function getAllActorsFromMove(){ // Відбір всіх акторів з епізоду фільму
     // Звірка чи епізод не 0 та не більше 6
     if (epizodeValue > 0 && epizodeValue <= 6) {
@@ -91,10 +71,7 @@ async function getAllActorsFromMove(){ // Відбір всіх акторів �
         aboutEpisod.innerHTML = ''
     }
 }
-btnInfo.addEventListener('click', () => {
-    wrapperActors.innerHTML = ''
-    getAllActorsFromMove()
-})
+
 // Завершення роботи з акторами
 
 
@@ -125,15 +102,9 @@ async function getAllPlanets(page = 1){ // Отримання по АРІ всі
     const data = await request.json();
     const arrPlanets = await data.results // Планети у вигляді масиву обєктів 
     await arrPlanets.forEach(createPlanets)
-    planetPageInfo(page)
+    planetPageInfo(page,titTxtPlanets)
 }
-// Кнопки керування сторінками
-btnNext.addEventListener('click', ()=>{
-    nextPage()
-})
-btnPrev.addEventListener('click', ()=>{
-    prevPage()
-})
+
 // Функції керування сторінками
 function nextPage(){
     page == 6 ? page = 1 : page++
@@ -146,6 +117,47 @@ function prevPage(){
     getAllPlanets(page)
 }
 // Функція отримання інформації яка сторінка 
-function planetPageInfo(page){
-    titTxtPlanets.innerHTML = `<p class="tit_text_planet">Наразі перегляд сторінки з планетами № ${page}</p>`
+export default function planetPageInfo(page,selector){
+    selector.innerHTML = `<p class="tit_text_planet">Наразі перегляд сторінки з планетами № ${page}</p>`
 }
+
+// Функції подій
+document.addEventListener('DOMContentLoaded', function(){
+    try {
+        // Робота з домом при переході до акторів
+        btnActorsLink.addEventListener('click',()=>{
+            wrapperLink.style.display = 'none'
+            btnPlanet.style.display = 'none'
+            wrapperPlanets.style.display = 'none'
+            titTxtPlanets.style.display = 'none'
+            actorsForm.style.display = 'block'
+            backToStart.style.display = 'block'
+        })
+        // Робота з домом при переході до планет
+        btnPlanetLink.addEventListener('click',()=>{
+            wrapperActors.style.display = 'none'
+            wrapperLink.style.display = 'none'
+            backToStart.style.display = 'block'
+            titTxtPlanets.style.display = 'block'
+            btnPlanet.style.display = 'block'
+            getAllPlanets()
+        })
+        // Отримання студентів
+        btnInfo.addEventListener('click', () => {
+            wrapperActors.innerHTML = ''
+            getAllActorsFromMove()
+        })
+        // Кнопки керування сторінками
+        btnNext.addEventListener('click', ()=>{
+            nextPage()
+        })
+        btnPrev.addEventListener('click', ()=>{
+            prevPage()
+        })
+        // Отримання значення імпута
+        inputEpizode.addEventListener('input', e => {
+            epizodeValue = e.target.value
+        })
+    }
+    catch (e){}
+})

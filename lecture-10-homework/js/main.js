@@ -40,4 +40,8 @@ blockArr.map(buttonBlock => { // Перебераю всі елементи
         })
     })
 })
+function informationFromJs(){
+    alert('Цей текст повернуто з JS файлу завдання №10')
+}
 
+module.exports = informationFromJs

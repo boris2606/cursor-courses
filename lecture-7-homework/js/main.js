@@ -1,7 +1,25 @@
-let salaryForFunc = Number(prompt('Введіть заробітню плату працівника',1000))// Отримання значення заробітньої плати
-while (isNaN(salaryForFunc)){
-    salaryForFunc = Number(prompt('Введіть заробітню плату працівника',1000))
-}
+let salaryForFunc = 1000
+document.addEventListener('DOMContentLoaded',function(){
+    document.querySelector('.btn_start').onclick = () => { 
+        salaryForFunc = Number(prompt('Введіть заробітню плату працівника',1000))
+        while (isNaN(salaryForFunc)){
+            salaryForFunc = Number(prompt('Введіть заробітню плату працівника',1000))
+        }
+        getMyTaxes.call(ukraine,salaryForFunc)
+        
+        console.group('Середній податок з ІТ-спеціаліста')
+        getMiddleTaxes.call(ukraine)
+        getMiddleTaxes.call(latvia)
+        getMiddleTaxes.call(litva)
+        console.groupEnd()
+
+        console.group('Всього податків з ІТ-спеціалістів')
+        getTotalTaxes.call(ukraine)
+        getTotalTaxes.call(latvia)
+        getTotalTaxes.call(litva)
+        console.groupEnd()
+    }
+})
 function createCountryObj (tax, middleSalary, vacancies){// Функція формування обєктів
     return {
         tax,
@@ -18,12 +36,10 @@ const latvia = createCountryObj(0.25,1586,3921)
 const litva = createCountryObj(0.15,1509,1114)
 // Оплата податків в 1 з країн
 function getMyTaxes(salary) {
-    console.log();
     getCountryName(this)
     const myCountryTaxes = (this.tax * salary).toFixed(2)
     return console.log(`Плата податків як IT-спеціаліст в ${nameOfCountry} становить ${myCountryTaxes} при заробітній платні в ${salaryForFunc}`);
 }
-getMyTaxes.call(ukraine,salaryForFunc)
 
 //скільки у середньому податків платять IT-спеціалісти у кожній країні.
 function getMiddleTaxes (country) {
@@ -31,11 +47,7 @@ function getMiddleTaxes (country) {
     const result =  Math.round(this.tax * this.middleSalary).toFixed(2)
     return console.log(`В ${nameOfCountry} становить ${result}`)
 }
-console.group('Середній податок з ІТ-спеціаліста')
-getMiddleTaxes.call(ukraine)
-getMiddleTaxes.call(latvia)
-getMiddleTaxes.call(litva)
-console.groupEnd()
+
 
 // скільки всього податків платять IT-спеціалісти у кожній країні.
 function getTotalTaxes (country) {
@@ -43,11 +55,6 @@ function getTotalTaxes (country) {
     const result =  Math.round((this.tax * this.middleSalary) * this.vacancies)
     return console.log(`В ${nameOfCountry} становить ${result}`)
 }
-console.group('Всього податків з ІТ-спеціалістів')
-getTotalTaxes.call(ukraine)
-getTotalTaxes.call(latvia)
-getTotalTaxes.call(litva)
-console.groupEnd()
 
 // Формування обєктів для останньої функції
 function getMySalaryObj(country) {
@@ -70,6 +77,8 @@ function getMySalary (...countries){
     console.log(...arr);
 }
 // Виведення обєкту кожні 10 секундочок ) 
-setInterval(() => {
+let interval = setInterval(() => {
     getMySalary(ukraine,latvia,litva)
 }, 10000);
+
+module.exports = {getMyTaxes,interval,ukraine,salaryForFunc}

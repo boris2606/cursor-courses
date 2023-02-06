@@ -18,6 +18,19 @@ a{
     position:relative;
     z-index:3
 }
+button{
+    padding: 10px;
+    font: 900 18px Comfortaa;
+    border-radius: 10px;
+    border: 0px solid;
+    transition: .5s all ease-in-out;
+    cursor: pointer;
+}
+
+button:hover{
+    background: black;
+    color: #fff;
+}
 a:hover{
     color: #fff;
     background: rgb(21, 30, 42);

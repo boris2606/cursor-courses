@@ -28,7 +28,7 @@ const students = [
     }
 ];
 // Вибір студента
-let studentNumber = Number(prompt('Введіть номер необхідного студента для перевірки. Де 0 - Тетяна, 1 - Віктор, 2 - Антон'))
+let studentNumber
 while (studentNumber > 2){
     studentNumber = prompt('Введіть номер необхідного студента для перевірки. Де 0 - Тетяна, 1 - Віктор, 2 - Антон')
 }
@@ -40,7 +40,6 @@ function getSubjects(student){
         return subject.substring(0,1).toUpperCase() + subject.slice(1).toLowerCase().replace('_',' ')
     })
 }
-console.log(`Список предметів студента: ${getSubjects(students[studentNumber])}`);
 
 // Завдання №2 Повернення середньої оцінки по всім предметам обраного студента
 function getAverageMark(student){
@@ -55,7 +54,6 @@ function getAverage(...numbers){ // Функція обрахування сер
     const sum = numbers.reduce((acc, number) => acc + number, 0);
     return sum / numbers.length;
 }
-console.log(`Визначення середньої оцінки по всім редметам обраного студента: ${getAverageMark(students[studentNumber])}`);
 
 // Завдання №3 Повернення інформації по студенту
 function getStudentInfo(student){
@@ -63,7 +61,6 @@ function getStudentInfo(student){
     let {course, name, averageMark} = student
     return `курс: ${course}, ім'я: ${name}, середня оцінка: ${averageMark}`
 }
-console.log(`Перегляд інформації по обраному студенту: ${getStudentInfo(students[studentNumber])}`);
 
 // Завдання №4 Повернення імен студентів в алфавітному порядку
 function getStudentsNames(students) {
@@ -73,7 +70,6 @@ function getStudentsNames(students) {
     }
     return studentsNames.sort()
 }
-console.log(`Сортування імен студентів курсу за алфавітом: ${getStudentsNames(students)}`);
 
 // Завдання №5  Поверненя кращого студента по середній оцінці
 const averageMarkForAllStudents = (student) => { // Додавання всім на курсі середньої оцінки
@@ -94,10 +90,9 @@ function getBestStudent(students) {
     })
     return memberWithHigestMark.name // Повертаю імя студента з найбільшим показником середнбої оцінки
 }
-console.log(`Найклащим студентом курсу являється: ${getBestStudent(students)}`);
 
 // Завдання №6 Повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень.
-const wordForCountLetters = prompt('Введіть слово для підрахунку кількості літер')
+let wordForCountLetters
 function countLetterInWord(word){
     let lowerWord = word.toLowerCase().split('')
     let objLetters = {}
@@ -106,4 +101,24 @@ function countLetterInWord(word){
     }
     return objLetters
 }
-console.log(`Введее слово "${wordForCountLetters}" підрахунок кількості літер: ${JSON.stringify(countLetterInWord(wordForCountLetters))}`);
+function resultFunction(){
+    console.log(`Список предметів студента: ${getSubjects(students[studentNumber])}`);
+    console.log(`Визначення середньої оцінки по всім редметам обраного студента: ${getAverageMark(students[studentNumber])}`);
+    console.log(`Перегляд інформації по обраному студенту: ${getStudentInfo(students[studentNumber])}`);
+    console.log(`Сортування імен студентів курсу за алфавітом: ${getStudentsNames(students)}`);
+    console.log(`Найклащим студентом курсу являється: ${getBestStudent(students)}`);
+    console.log(`Введее слово "${wordForCountLetters}" підрахунок кількості літер: ${JSON.stringify(countLetterInWord(wordForCountLetters))}`);
+
+}
+document.addEventListener('DOMContentLoaded', function(){
+    document.querySelector('.btn_start').onclick = () => { 
+        studentNumber =  Number(prompt('Введіть номер необхідного студента для перевірки. Де 0 - Тетяна, 1 - Віктор, 2 - Антон'))
+        wordForCountLetters = prompt('Введіть слово для підрахунку кількості літер')
+        resultFunction()
+    }
+})
+
+module.exports = {
+    students,
+    getStudentInfo
+}

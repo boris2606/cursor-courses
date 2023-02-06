@@ -1,30 +1,37 @@
-import {
-    addMoreMarkBudget,
-    addMoreMark,
-    newMarkAddBudget,
-    addMarkBtnBudget,
-    recoverBtnBudget,
-    dismissBtnBudget,
-    averageBtnBudget,
-    inputs,
-    removeButton,
-    createButtonStudent,
-    createButtonBudgetStudent,
-    valUnivers,
-    valCourse,
-    valName,
-    resultBlock,
-    wrapperBtn,
-    wrapperBtnBudget,
-    getMarksBtn,
-    addMarkBtn,
-    newMarkAdd,
-    averageBtn,
-    dismissBtn,
-    recoverBtn,
-    scholarshipPopup,
-    defaultValues
-} from "./variables.js"
+function $(name){
+    return document.querySelector(name)
+}
+// Нода полів
+const inputs = document.querySelectorAll('.close')
+// Кнопки видалення і створення
+const removeButton = $('#enable_form')
+const createButtonStudent = $('#submit_form_student')
+const createButtonBudgetStudent = $('#submit_form_budget_student')
+// Поля введення
+let valUnivers = $('#univers_value')
+let valCourse = $('#course_value')
+let valName = $('#name_value')
+let newMarkAdd = $('#new_mark')
+let newMarkAddBudget = $('#new_mark_budget')
+// Обгортка кнопок
+const wrapperBtn = $('.wrapper_buttons_student')
+const wrapperBtnBudget = $('.wrapper_buttons_budget_student')
+const scholarshipPopup = $('.scholarship_popup') // Вивід отримання стипендії
+// Кнопки виклику функцій
+const defaultValues = $('.default_values') // Значення за замовчуванням
+const getMarksBtn = $('.get_marks_btn') // Кнопка отримання оцінок
+const addMarkBtn = $('.add_mark_btn') // Поставити оцінки
+const addMoreMark = $('.add_more_mark') // Додати оцінку
+const averageBtn = $('.average_btn') // Визначення середнього балу
+const dismissBtn = $('.dismiss_btn') // Виключення студента
+const recoverBtn = $('.recover_btn') // Поновлення студента
+const addMarkBtnBudget = $('.add_mark_btn_budget') // Поставити оцінки бюджетнику
+const addMoreMarkBudget = $('.add_more_mark_budget') // Додати оцінку бюджетнику
+const averageBtnBudget = $('.average_btn_budget') // Визначення середнього балу бюджетника
+const dismissBtnBudget = $('.dismiss_btn_budget') // Виключення студента бюджетника
+const recoverBtnBudget = $('.recover_btn_budget') // Поновлення студента бюджетника
+const resultBlock = $('.result') // Блок виводу результату
+
 class Student {
     constructor(university,course,fullName){
         this.university = university
@@ -95,9 +102,7 @@ class BudgetStudent extends Student{
         delete this.interval
     }
 }
-defaultValues.onclick = () => {
-    setDefaultValues()
-}
+
 let student = {}
 let budgetStudent = {}
 function createAndChekPerson(person,nameOfClass){ // Створення та перевірка студента на поля
@@ -121,31 +126,7 @@ function createAndChekPerson(person,nameOfClass){ // Створення та п�
     defaultValues.style.display = 'none'
     return person
 }
-createButtonStudent.onclick = () =>{ // Створення студенту через конструктор
-    student = createAndChekPerson(student,Student)
-}
-createButtonBudgetStudent.onclick = () =>{ // Створення бюджетного студенту через конструктор
-    budgetStudent = createAndChekPerson(student,BudgetStudent)
-}
 
-// Отримання оцінок
-getMarksBtn.onclick = () => { // Отримання оцінок студента
-    resultBlock.innerHTML += `<p class="student_result">${student.getMarks}</p>`
-}
-
-// Додавання оцінок
-addMarkBtn.onclick = () => { // Поставити оцінку студенту
-    addMarkPerson(student)
-}
-addMarkBtnBudget.onclick = () => { // Поставити оцінку студенту бютжетнику
-    addMarkPerson(budgetStudent)
-}
-addMoreMark.onclick = () => { // Відкриття полів додаткової оцінки
-    openAddMoreMarkStudent()
-}
-addMoreMarkBudget.onclick = () => {// Відкриття полів додаткової оцінки бюджетнику
-    openAddMoreMarkBudget()
-}
 function addMarkPerson(person){
     if (person.studentStatus !== 'dismiss'){
         if (+newMarkAdd.value > 0 || +newMarkAddBudget.value > 0){
@@ -170,23 +151,13 @@ function addMarkPerson(person){
 }
 
 // Середній бал студентів
-averageBtn.onclick = () => { // Отримання середнбого балу студента
-    averagePerson(student)
-}
-averageBtnBudget.onclick = () => { // Отримання середнбого балу студента
-    averagePerson(budgetStudent)
-}
+
 function averagePerson(person){
     person.marks !== null ? resultBlock.innerHTML += `<p class="student_result">Середній бал студента ${person.getAverageMark()}</p>` : alert('Студент відрахований, необхідно відновити для отримання середнього балу')
 }
 
 // Виключення бюджетоного студента
-dismissBtn.onclick = () => { // Виключення студента
-    dismissPerson(student)
-}
-dismissBtnBudget.onclick = () => { // Виключення студента бюджетника
-    dismissPerson(budgetStudent)
-}
+
 function dismissPerson(person){
     recoverBtn.style.display = 'block'
     recoverBtnBudget.style.display = 'block'
@@ -198,12 +169,7 @@ function dismissPerson(person){
 }
 
 // Поновлення студента
-recoverBtn.onclick = () => { // Поновлення студента
-    recoverPerson(student)
-}
-recoverBtnBudget.onclick = () => { // Поновлення студента бюджетника
-    recoverPerson(budgetStudent)
-}
+
 function recoverPerson(person){
     person.recover()
     dismissBtn.disabled = false
@@ -213,9 +179,7 @@ function recoverPerson(person){
 }
 
 // Редагування полів та кнопок 
-removeButton.onclick = () => { // Відкриття полів для створення студенту та видалення попереднього
-    enableInputs(inputs)
-}
+
 function disableInputAfterCreation (arrInput){ // Закриття полів для вооду пісоя створення студенту
     for (let input of arrInput){
         input.setAttribute('value','')
@@ -273,3 +237,56 @@ function setDefaultValues(){
     valCourse.setAttribute('value', 4)
     valName.setAttribute('value','Шагієв Борис Анатолійович')
 }
+
+// Події при кліку
+document.addEventListener('DOMContentLoaded', function(){
+    defaultValues.onclick = () => {
+        setDefaultValues()
+    }
+    createButtonStudent.onclick = () =>{ // Створення студенту через конструктор
+        student = createAndChekPerson(student,Student)
+    }
+    createButtonBudgetStudent.onclick = () =>{ // Створення бюджетного студенту через конструктор
+        budgetStudent = createAndChekPerson(student,BudgetStudent)
+    }
+    // Отримання оцінок
+    getMarksBtn.onclick = () => { // Отримання оцінок студента
+        resultBlock.innerHTML += `<p class="student_result">${student.getMarks}</p>`
+    }
+    // Додавання оцінок
+    addMarkBtn.onclick = () => { // Поставити оцінку студенту
+        addMarkPerson(student)
+    }
+    addMarkBtnBudget.onclick = () => { // Поставити оцінку студенту бютжетнику
+        addMarkPerson(budgetStudent)
+    }
+    addMoreMark.onclick = () => { // Відкриття полів додаткової оцінки
+        openAddMoreMarkStudent()
+    }
+    addMoreMarkBudget.onclick = () => {// Відкриття полів додаткової оцінки бюджетнику
+        openAddMoreMarkBudget()
+    }
+    averageBtn.onclick = () => { // Отримання середнбого балу студента
+        averagePerson(student)
+    }
+    averageBtnBudget.onclick = () => { // Отримання середнбого балу студента
+        averagePerson(budgetStudent)
+    }
+    dismissBtn.onclick = () => { // Виключення студента
+        dismissPerson(student)
+    }
+    dismissBtnBudget.onclick = () => { // Виключення студента бюджетника
+        dismissPerson(budgetStudent)
+    }
+    recoverBtn.onclick = () => { // Поновлення студента
+        recoverPerson(student)
+    }
+    recoverBtnBudget.onclick = () => { // Поновлення студента бюджетника
+        recoverPerson(budgetStudent)
+    }
+    removeButton.onclick = () => { // Відкриття полів для створення студенту та видалення попереднього
+        enableInputs(inputs)
+    }
+})
+
+module.exports = Student

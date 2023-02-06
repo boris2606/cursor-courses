@@ -14,3 +14,11 @@ main  {
     border-radius: 10px;
     padding: 10px 
 }
+.btn_start{
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font: 900 15px Comfortaa;
+    border: 0px ;
+    border-radius:5px;
+}

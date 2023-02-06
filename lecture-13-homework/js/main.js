@@ -40,17 +40,21 @@ const iteratorFontSize = {
 let fontGenerator = iteratorFontSize.gen(14)
 
 // Функції для роботи з даними 
-infiniteBtn.onclick = () => {
-    audio.currentTime = 0
-    audio.pause()
-    audio.play()
-    currentStep.innerHTML = idGenerator.next().value
-}
-sizeUpBtn.onclick = () => {
-    startText.style.fontSize = fontGenerator.next('up').value
-    currentSize.innerHTML = `Поточний розмір шрифта:  ${startText.style.fontSize}`
-}
-sizeDownBtn.onclick = () => {
-    startText.style.fontSize = fontGenerator.next('down').value
-    currentSize.innerHTML = `Поточний розмір шрифта:  ${startText.style.fontSize}`
-}
+document.addEventListener('DOMContentLoaded',function(){
+    infiniteBtn.onclick = () => {
+        audio.currentTime = 0
+        audio.pause()
+        audio.play()
+        currentStep.innerHTML = idGenerator.next().value
+    }
+    sizeUpBtn.onclick = () => {
+        startText.style.fontSize = fontGenerator.next('up').value
+        currentSize.innerHTML = `Поточний розмір шрифта:  ${startText.style.fontSize}`
+    }
+    sizeDownBtn.onclick = () => {
+        startText.style.fontSize = fontGenerator.next('down').value
+        currentSize.innerHTML = `Поточний розмір шрифта:  ${startText.style.fontSize}`
+    }
+})
+
+module.exports = createIdGenerator

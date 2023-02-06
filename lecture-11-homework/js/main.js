@@ -1,7 +1,4 @@
-let lenghtWord = Number(prompt('Введіть довжину слова з символів', 4))
-while (!lenghtWord){
-    lenghtWord = Number(prompt('Введіть довжину слова з символів'))
-}
+
 async function getRandomChinese(length) {
     let result = ''
     let i = 0
@@ -16,6 +13,16 @@ async function getRandomChinese(length) {
 }
 let delay = ms => {return new Promise(resolve => setTimeout(()=>resolve(),ms))}
 
-getRandomChinese(lenghtWord).then(value => {
-    document.querySelector('main').append(value);
-});
+document.addEventListener('DOMContentLoaded',function(){
+    document.querySelector('.btn_start').onclick = () => { 
+        let lenghtWord = Number(prompt('Введіть довжину слова з символів', 4))
+        while (!lenghtWord){
+            lenghtWord = Number(prompt('Введіть довжину слова з символів'))
+        }
+        getRandomChinese(lenghtWord).then(value => {
+            document.querySelector('main').innerHTML = value;
+        });
+    }
+})
+
+module.exports = getRandomChinese
