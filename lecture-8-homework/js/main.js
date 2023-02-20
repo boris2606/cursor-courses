@@ -42,8 +42,12 @@ class Student {
         return `Інформація про студента: Студент ${this.course}-го курсу, навчальний заклад: ${this.university} , повне імя студента: ${this.fullName}`
     }
     getAverageMark(){
-        const sum = this.marks.reduce((acc, number) => acc + number, 0)
-        return (sum / this.marks.length).toFixed(1)
+        if (this.studentStatus == 'dismiss') {
+            return 0
+        } else {
+            const sum = this.marks.reduce((acc, number) => acc + number, 0)
+            return (sum / this.marks.length).toFixed(1)
+        }
     }
     dismiss(){
         this.studentStatus = 'dismiss'
